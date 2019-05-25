@@ -11,7 +11,7 @@ class CollegeSerializer(serializers.HyperlinkedModelSerializer):
         model = College
         fields = ['id','url', 'name', 'address',]
 
-class JobSerializer(serializers.ModelSerializer):
+class JobSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Job
         fields = ['id', 'url', 'name','colleges']

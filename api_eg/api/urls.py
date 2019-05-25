@@ -9,5 +9,6 @@ router.register('jobs', views.JobView)
 router.register('addresses', views.AddressView)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+    
 ]
