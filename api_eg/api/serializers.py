@@ -1,7 +1,12 @@
 from rest_framework import serializers
-from .models import College, Job
+from .models import College, Job, Address
 
-class CollegeSerializer(serializers.ModelSerializer):
+class AddressSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Address
+        fields = ['id', 'url', 'name']
+
+class CollegeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = College
         fields = ['id','url', 'name', 'address',]
@@ -9,4 +14,4 @@ class CollegeSerializer(serializers.ModelSerializer):
 class JobSerializer(serializers.ModelSerializer):
     class Meta:
         model = Job
-        fields = ['id', 'url', 'position', 'salary']
+        fields = ['id', 'url', 'name','colleges']
